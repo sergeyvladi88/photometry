@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
 
     fig = go.Figure(data=go.Surface(x=X, y=Y, z=Z,showscale=False))
-    fig.update_layout(title='Фотометрическое тело {0}'.format(sys.argv[1]), autosize=False,
+    fig.update_layout(title='Фотометрическое тело {0}'.format(ies_data['[LUMINAIRE]']), autosize=False,
                       width=600, height=600,
                       margin=dict(l=65, r=50, b=65, t=90),template='plotly_dark')
 
