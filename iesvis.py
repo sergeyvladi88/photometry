@@ -18,7 +18,8 @@ if __name__ == '__main__':
     fid = open(sys.argv[1] , encoding='cp1251')
     ies_data = ies.reader(fid)
     LID = pd.DataFrame(ies_data['I_TABLE'])
-
+    LID[360] = LID[0]
+    
     C = [m.radians(float(i)) for i in LID.columns]
     C = np.array(C)
 
