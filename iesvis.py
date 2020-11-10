@@ -39,11 +39,5 @@ if __name__ == '__main__':
         fig.update_layout(title='Фотометрическое тело', autosize=False,
                       width=600, height=600,
                       margin=dict(l=65, r=50, b=65, t=90),template='plotly_dark')    
-    C = LID.keys()
-    I = LID.values
-    maxidx = np.where(I==I.max())
-    Imax = I[maxidx[0][0],:]
-    fig = go.Figure(data= go.Scatterpolar(r = Imax, theta = C))
-    fig.update_layout(showlegend=False,template="plotly_dark")
-
+  
     fig.show()
