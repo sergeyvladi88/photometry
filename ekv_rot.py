@@ -200,7 +200,7 @@ if __name__ == "__main__":
     ies = reader(fid1)
     ies = rotekv(ies, angle = float(sys.argv[2]))
 
-    fid2 = open("{0}".format(sys.argv[1]), encoding='cp1251', mode = 'w')
+    fid2 = open("{0}".format(sys.argv[1]), encoding='cp1251', mode = 'w', newline='\r\n')
     writer(fid2, ies)
     
 
