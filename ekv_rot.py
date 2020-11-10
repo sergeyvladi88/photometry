@@ -85,11 +85,11 @@ def reader(fid):
     # Система единиц
     parametrs_dct['SYSTEM_OF_UNITS'] = int(parametrs[6])
     # Ширина светильника
-    parametrs_dct['WIDTH'] = int(parametrs[7])
+    parametrs_dct['WIDTH'] = float(parametrs[7])
     # Длина светильника
-    parametrs_dct['LENGTH'] = int(parametrs[8])
+    parametrs_dct['LENGTH'] = float(parametrs[8])
     # Высота светильника
-    parametrs_dct['HEIGHT'] = int(parametrs[9])
+    parametrs_dct['HEIGHT'] = float(parametrs[9])
     # Коэффициент балласта
     parametrs_dct['BALLAST_FACTOR'] = int(parametrs[10])
     # Признак версии
