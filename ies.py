@@ -91,16 +91,38 @@ def reader(fid):
     # Для доступа к значению силы света используется два ключа:
     # первый ключ --- это азимутальный угол, второй --- меридиональный
     I_table = {}
-    for j in azimut_angles:
-        intensity_curve = {}
-        for i in polar_angles:
-            intensity_curve[i] = I[polar_angles.index(i) + 
-                           pc*azimut_angles.index(j)]      
-        I_table[j] = intensity_curve
-    
-    ies_dct['I_TABLE'] = I_table        
+
+    if azimut_angles[-1] == 90:
+        for j in azimut_angles:
+            intensity_curve = {}
+            for i in polar_angles:
+                intensity_curve[i] = I[polar_angles.index(i) + 
+                                       pc*azimut_angles.index(j)]      
+            I_table[j] = intensity_curve
+            I_table[180-j] = intensity_curve
+            I_table[180+j] = intensity_curve
+            I_table[360-j] = intensity_curve
+            
+    elif azimut_angles[-1] == 360:
+        for j in azimut_angles:
+            intensity_curve = {}
+            for i in polar_angles:
+                intensity_curve[i] = I[polar_angles.index(i) + 
+                                       pc*azimut_angles.index(j)]      
+            I_table[j] = intensity_curve
+        
+    temp = list(I_table.keys())
+    temp.sort()
+
+    I_table_sort = {}
+
+    for i in temp:
+        I_table_sort[i]=I_table[i]
+
+    ies_dct['I_TABLE'] = I_table_sort        
     return ies_dct
 
+   
 # Функция записи ies файла
 def writer(fid, ies_dct):
     pass
